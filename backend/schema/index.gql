@@ -1,0 +1,23 @@
+type Query {
+  lollies: [Lolly!]
+}
+type Lolly {
+  recipientName: String!
+  message: String!
+  senderName: String!
+  fillTop: String!
+  fillMiddle: String!
+  fillBottom: String!
+  lollyPath: String!
+  docId: String!
+}
+type Mutation {
+  createLolly(
+    recipientName: String!
+    message: String!
+    senderName: String!
+    fillTop: String!
+    fillMiddle: String!
+    fillBottom: String!
+  ): Lolly
+}

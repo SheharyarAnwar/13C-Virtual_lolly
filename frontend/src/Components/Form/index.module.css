@@ -1,0 +1,29 @@
+.form {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+}
+button {
+  outline: none;
+  border: none;
+  font-family: "Josefin Sans";
+  /* font-weight: bold; */
+  font-size: 1rem;
+  cursor: pointer;
+  animation: anime 0.5s infinite;
+}
+@keyframes anime {
+  0% {
+    transform: scale(1);
+    color: #d2e73b;
+  }
+
+  100% {
+    color: #105962;
+    transform: scale(0.9);
+  }
+}

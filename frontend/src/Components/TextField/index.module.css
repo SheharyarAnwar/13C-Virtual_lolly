@@ -1,0 +1,24 @@
+.root {
+  text-align: center;
+  width: 80%;
+}
+.root input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid rgb(82, 105, 89);
+  padding: 10px;
+  font-family: "Futura", "Josefin Sans";
+  font-size: 1rem;
+  color: #264653;
+  width: 100%;
+}
+.root textarea {
+  background-color: transparent;
+  font-family: "Futura", "Josefin Sans";
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid rgb(82, 105, 89);
+  color: #264653;
+  outline: none;
+}

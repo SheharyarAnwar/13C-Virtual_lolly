@@ -1,0 +1,18 @@
+.root {
+  width: 70%;
+  min-width: 300px;
+  margin: 5% auto;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.letter {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 400px;
+  width: 400px;
+}
