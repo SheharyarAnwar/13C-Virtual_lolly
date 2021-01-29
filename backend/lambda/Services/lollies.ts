@@ -1,7 +1,9 @@
 import { AppSyncResolverEvent, Context } from "aws-lambda";
 import { DynamoDB } from "aws-sdk";
 import { AddLollyParams } from "../../Interfaces";
-// import { v4 } from "uuid";
+// @ts-ignore
+import { generate } from "shortid";
+
 class Lollies {
   documentClient: DynamoDB.DocumentClient;
   tableName: string;
@@ -13,12 +15,13 @@ class Lollies {
     event: AppSyncResolverEvent<AddLollyParams>,
     context: Context
   ) => {
+    console.log(generate(), "--Generate");
     const res = await this.documentClient
       .update({
         TableName: this.tableName,
         Key: { docId: context.awsRequestId },
         UpdateExpression:
-          "SET fillBottom = :fillBottom, fillMiddle = :fillMiddle, fillTop = :fillTop, message= :message, recipientName= :recipientName, senderName= :senderName",
+          "SET lollyPath= :lollyPath, fillBottom = :fillBottom, fillMiddle = :fillMiddle, fillTop = :fillTop, message= :message, recipientName= :recipientName, senderName= :senderName",
         ExpressionAttributeValues: {
           ":fillBottom": event.arguments.fillBottom,
           ":fillMiddle": event.arguments.fillMiddle,
@@ -26,6 +29,7 @@ class Lollies {
           ":message": event.arguments.message,
           ":recipientName": event.arguments.recipientName,
           ":senderName": event.arguments.senderName,
+          ":lollyPath": generate(),
         },
         ReturnValues: "ALL_NEW",
       })
