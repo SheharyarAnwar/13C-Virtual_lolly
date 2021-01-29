@@ -3,7 +3,8 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
-
+const { createHttpLink } = require("@apollo/client")
+const fetch = require("isomorphic-fetch")
 module.exports = {
   /* Your site config here */
   plugins: [
@@ -44,10 +45,15 @@ module.exports = {
       options: {
         typeName: "SWAPI",
         fieldName: "swapi",
-        url:
-          "https://cg2kx6rvqvdwva7lxiquzq3tsu.appsync-api.ap-south-1.amazonaws.com/graphql",
-        headers: {
-          "x-api-key": "da2-b3rlrxrtgvavrg3ggogb564paa",
+        createLink: pluginOptions => {
+          return createHttpLink({
+            uri:
+              "https://57fl2cq4lbbypewc2dyzh27x3y.appsync-api.ap-south-1.amazonaws.com/graphql",
+            headers: {
+              "x-api-key": "da2-5kbqkohbzfht3prykwqjqnteam",
+            },
+            fetch,
+          })
         },
       },
     },
